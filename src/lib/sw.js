@@ -27,7 +27,7 @@ self.addEventListener('push', function(event) {
   
     const title = '[JS: Mini-React]';
     const options = {
-      body: 'Coucou, le push marche ohlala !',
+      body: 'Coucou, le push marche ohlala ! On est trop fort, clique pour connaître la source de ce pouvoir',
       icon: 'images/icon.png',
       badge: 'images/badge.png'
     };
