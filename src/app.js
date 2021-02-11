@@ -23,11 +23,11 @@ var promise = new Promise(function (resolve, reject) {
 
   // On vérifie qu'on a bien un content dans le DOM pour permettre au React de fonctionner
   if (contentElement)
-    resolve("Content element found !  React can work ! Yay !");
+    resolve("Ah super ! content element a été trouvé !");
   else
     reject(
       Error(
-        "No content element found... React won't work :( Please use Google Chrome !"
+        "Ohlala content element pas trouvé ! "
       )
     );
 });
@@ -40,6 +40,7 @@ promise.then(
     switch (!route ? null : route.getId()) {
       case "home":
         // Si on est sur la route home
+        //console.log("home :" + route.getId());
         ReactDOM.render(TickComponent, contentElement, {
           interval: 1000
         });
