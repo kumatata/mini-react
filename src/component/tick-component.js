@@ -3,6 +3,7 @@ import { React } from "../lib/react.js";
 import { Component } from "./../lib/component.js";
 
 export class TickComponent extends Component {
+
   constructor(properties) {
     super(properties);
     setInterval(this.tick, properties.interval);

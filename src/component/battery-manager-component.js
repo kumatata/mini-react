@@ -12,64 +12,42 @@ export class BatteryManagerComponent extends Component {
         const result = React.createElement(
             "div",
             {
-                class: "batery"
+                class: "battery"
                 //style: "margin-top: 400px;"
             },
             React.createElement(
-                "h3",
-                { type: "text" },
-                "Battery level"
+                "button",
+                { class: "btn" },
+                React.createElement("i", { class: "fa fa-home" }, "Informations sur la batterie")
+            ),
+            // React.createElement(
+            //     "h3",
+            //     { type: "text" },
+            //     "Battery informations"
+            // ),
+            React.createElement(
+                "p",
+                { type: "text", id: "level" },
+                `${this.testingBattery()}`
             ),
             React.createElement(
                 "p",
-                { type: "text" },
+                { type: "text", id: "charging" },
                 `${this.testingBattery()}`
-            )
+            ),
+            React.createElement(
+                "p",
+                { type: "text", id: "dischargingTime" },
+                `${this.testingBattery()}`
+            ),
+            // React.createElement(
+            //     "p",
+            //     { type: "text", id: "chargingTime" },
+            //     `${this.testingBattery()}`
+            // ),
+
         );
         return result;
-    }
-
-
-    levelBattery() {
-
-        navigator.getBattery().then(function (battery) {
-
-            var level = battery.level;
-            console.log(battery.level);
-            return level;
-            //document.querySelector('#level').textContent = level;
-        });
-    }
-
-    newTest() {
-        let batteryPromise = navigator.getBattery();
-        batteryPromise.then(batteryCallback);
-
-        function batteryCallback(batteryObject) {
-            return printBatteryStatus(batteryObject);
-        }
-        function printBatteryStatus(batteryObject) {
-            //console.log("IsCharging", batteryObject.charging);
-            //console.log("Percentage", batteryObject.level);
-            return batteryObject.level;
-
-            console.log("charging Time", batteryObject.chargingTime);
-            console.log("DisCharging Time", batteryObject.dischargingTime);
-        }
-    }
-
-    charging() {
-        navigator.getBattery().then((battery) => {
-
-            battery.ondischargingtimechange = (event) => {
-                console.warn(`Discharging : `, event.target.level)
-                return event.target.level;
-            };
-
-            // battery.onchargingtimechange = (event) => {
-            //     console.info(`Charging : `, event.target.level);
-            // };
-        });
     }
 
     testingBattery() {
@@ -78,10 +56,14 @@ export class BatteryManagerComponent extends Component {
 
 
         function logBattery(battery) {
-            //this.levelBattery = battery.level;
             console.log(battery.level);
+            document.querySelector('#level').textContent = "Niveau de la batterie : " + battery.level * 100 + " %";
             console.log(battery.charging);
-            //console.log(dischargingTime);
+            console.log(battery.dischargingTime);
+            document.querySelector('#charging').textContent = "Battery en charge ? " + (battery.charging ? "Oui" : "Non");
+            // document.querySelector('#chargingTime').textContent = "Temps avant charge de la batterie: "
+            //     + battery.chargingTime + " secondes";
+            document.querySelector('#dischargingTime').textContent = battery.dischargingTime / 60;
 
             battery.addEventListener('chargingchange', function () {
                 //console.log('Battery chargingchange event: ' + battery.charging);
@@ -89,17 +71,13 @@ export class BatteryManagerComponent extends Component {
         }
 
         if (navigator.getBattery) {
-            navigator.getBattery().then(logBattery);
-            console.log(navigator.getBattery().then(logBattery.level));
+            // navigator.getBattery().then(logBattery).then((data) => {
+            //     console.log("data " + data);
+            // });
             return navigator.getBattery().then(logBattery);
         } else if (battery) {
             return logBattery(battery);
 
         }
     }
-
-    // getLevelBattery() {
-    //     return this.levelBattery;
-    // }
-
 }
