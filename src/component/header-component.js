@@ -95,17 +95,7 @@ export class HeaderComponent extends Component {
           },
           routeBattery.getName()
         )
-        ),	
-        React.createElement("h2", null, `${this.bodyTitle}`),	
-        React.createElement("ul", null,	
-          React.createElement("li", null, "Contenu du site"),	
-          React.createElement("ul", null,	
-            React.createElement("li", null, "Home : affiche la date et l'heure "),	
-            React.createElement("li", null, "File : permet d'importer un fichier "),	
-            React.createElement("li", null, "Battery : permet d'avoir des infos sur la baterie"),	
-          ),	
-          React.createElement("li", null, "Route inconue : nous renvoi error 404"),
-      )
+        )
     );
 
     return result;

@@ -8,8 +8,8 @@ export class ErrorNotFoundComponent extends Component {
 
   render = () => {
     const result = React.createElement(
-      "h2",
-      { class: "error text-center" },
+      "div",
+      { class: "danger" },
       `Error 404 : Not Found (url : ${window.location.pathname})`
     );
     return result;
