@@ -20,15 +20,15 @@ export class TickComponent extends Component {
       "div",
       {
         class: "horloge",
-        style: "border-radius: 10px; border-style: outset;"
+        style: "border-radius: 10px;"
       },
       React.createElement(
-        "h2",
+        "h3",
         { class: "date text-center", id: "horloge" },
         `Date : ${event.toLocaleDateString(undefined, options)}`
       ),
       React.createElement(
-        "h2",
+        "h3",
         { class: "heure text-center", id: "horloge" },
         `Heure : ${this.state.ticker == null
           ? new Date().toLocaleTimeString()

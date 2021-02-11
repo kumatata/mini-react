@@ -27,7 +27,7 @@ export class BatteryManagerComponent extends Component {
             // ),
             React.createElement(
                 "p",
-                { type: "text", id: "level" },
+                { class: "mt-3", type: "text", id: "level" },
                 `${this.testingBattery()}`
             ),
             React.createElement(
