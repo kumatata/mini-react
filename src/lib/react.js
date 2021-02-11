@@ -1,17 +1,18 @@
 import { isStateLessComponent } from "./string.js";
 import { Component } from "./component.js";
 
-// AnElement
-function anElement(element, properties, children) {
+// à modifier
+function generateElement(element, properties, children) {
   if (element.isClass()) {
     const component = new Component(properties);
     return component.render();
-  } else if (isStateLessComponent(element)) {
+  } else if (!element.isClass() && typeof element === "function") {
     return Component(properties);
   } else {
     const anElement = document.createElement(element);
     children.forEach(child => {
       if (typeof child === "object") {
+        // ajoute un noeud à la fin de la liste des enfants du noeud
         anElement.appendChild(child);
       } else {
         anElement.textContent += child;
@@ -35,7 +36,7 @@ function anElement(element, properties, children) {
 
 //Paramètres du reste, permet de représenter un nombre indéfini d'arguments sous forme d'un tableau
 export const createElement = (element, properties, ...children) => {
-  return anElement(element, properties, children);
+  return generateElement(element, properties, children);
 };
 
 // Permet d'exposer la classe

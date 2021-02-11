@@ -95,7 +95,7 @@ export class HeaderComponent extends Component {
           },
           routeBattery.getName()
         )
-      )
+        )
     );
 
     return result;

@@ -1,22 +1,22 @@
 /**
- * 1- Je récupère le path entre les crochets
- * 2- je boucle sur chaque éléments que j'ai pu trouver
- * 3- je remplace ce path avec la data si elle existe
+ * 1- le chemin est récupéré entre les crochets
+ * 2- ensuite on passe en revue les éléments de cette valeur
+ * 3- si la donnée existe, on la remplace avec la valeur entrante.
  */
 String.prototype.interpolate = function (object){
   let string = this.valueOf()
 
   const regex = /.*?{{(.*?)}}.*?/gm;
-  let m;
+  let word;
   let match = [];
 
-  while ((m = regex.exec(string)) !== null) {
-      // This is necessary to avoid infinite loops with zero-width matches
-      if (m.index === regex.lastIndex) {
+  while ((word = regex.exec(string)) !== null) {
+      // cela évite des boucles infinies
+      if (word.index === regex.lastIndex) {
           regex.lastIndex++;
       }
 
-      match.push(m[1]);
+      match.push(word[1]);
   }
 
   match.forEach(path => {
@@ -130,7 +130,7 @@ function type_check_v2(data, conf) {
   return true;
 }
 
-// TypeCheck final version
+// TypeCheck 3
 export function type_check(data, conf) {
   for (let key of Object.keys(conf)) {
     switch (key) {

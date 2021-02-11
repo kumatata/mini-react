@@ -80,4 +80,8 @@ export class BatteryManagerComponent extends Component {
 
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dev
