@@ -1,0 +1,86 @@
+ /* --- Balises --- */
+body {
+    background-color: azure;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #5499C7;
+  }
+  
+  a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    min-width: 100px;
+  }
+  
+  a:hover {
+    color: lightgreen;
+  }
+  
+  /* --- Classes --- */
+  .container {
+    width: 50%;
+    margin: auto;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .link {
+    cursor: pointer;
+  }
+  
+  .file {
+    margin-left: 30%;
+    margin-top: 40px;
+  }
+
+  .horloge {
+    margin-top: 50px;
+    margin-left: 30%;
+    text-align: center;
+    width: 400px;
+  }
+  
+  .date, .heure {
+    text-align: left;
+    margin-left: 7%;
+  }
+  
+  .error {
+    color : red;
+  }
+  
+  /* --- Marges --- */
+  .mb-5 {
+    margin-bottom: 5em;
+  }
+  
+  .mb-1 {
+    margin-bottom: 1em;
+  }
+  
+  .mt-5 {
+    margin-top: 5em;
+  }
+  
+  /* Buttons */
+  .btn {
+    color: #c800fa;
+    border-radius: 3px;
+    border-color: #c800fa;
+    background: rgba(0, 0, 0, 0);
+  }
+  
+  .btn:hover {
+    color: black;
+    border-radius: 3px;
+    border-color: #c800fa;
+    background: #c800fa;
+  }
