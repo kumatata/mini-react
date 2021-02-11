@@ -17,7 +17,7 @@ export class PageComponent extends Component {
           React.createElement("li", null, "Contenu du site"),
           React.createElement("ul", null,
             React.createElement("li", null, "Home : affiche la date et l'heure "),
-            React.createElement("li", null, "Push : envoie une notification dans le navigateur (outil: WebServer for Chrome) "),
+            React.createElement("li", null, "Push : envoie une notification dans le navigateur (Google Dev) "),
             React.createElement("li", null, "File : permet d'importer un fichier "),
             React.createElement("li", null, "Battery : permet d'avoir des infos sur la baterie"),
           ),

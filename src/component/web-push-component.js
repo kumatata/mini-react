@@ -1,7 +1,5 @@
 import { React } from "../lib/react.js";
 import { Component } from "./../lib/component.js";
-import {} from "./../lib/sw.js";
-
 
   export class WebPushComponent extends Component {
     constructor(properties) {
@@ -17,7 +15,7 @@ import {} from "./../lib/sw.js";
           class: "p",
           style: "align-items:center"
         },
-        React.createElement("button", { id: "divPush", class: "js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" }, "Activer le push")
+        React.createElement("button", { id: "divPush", disabled: true, class: "js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" }, "Activer le push")
       );
       return result;
     };

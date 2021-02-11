@@ -44,6 +44,7 @@ promise.then(
         ReactDOM.render(TickComponent, contentElement, {
           interval: 1000
         });
+        ReactDOM.render(WebPushComponent, contentElement, {});
         break;
 
       case "push":
