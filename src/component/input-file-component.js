@@ -16,10 +16,10 @@ export class InputFileComponent extends Component {
 
   render() {
     const result = React.createElement(
-      "div",
+      "card",
       {
-        class: "file"
-        //style: "margin-top: 400px;"
+        class: "container",
+        style: "margin-top: 400px;"
       },
       React.createElement(
         "input",

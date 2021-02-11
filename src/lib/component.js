@@ -58,7 +58,10 @@ export class Component {
     this.prevState = this.state;
     this.state = newState;
     this.display();
+    this.componentDidUpdate();
   };
+
+  componentDidUpdate = () => { };
 
   getState = () => {
     return this.state;

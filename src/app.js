@@ -6,12 +6,15 @@ import { PageComponent } from "./component/page-component.js";
 import { ErrorNotFoundComponent } from "./component/404-component.js";
 import { InputFileComponent } from "./component/input-file-component.js";
 import { BatteryManagerComponent } from "./component/battery-manager-component.js";
+import { WebPushComponent } from "./component/web-push-component.js";
+
 
 // Initialisation de l'arboresence
 ReactDOM.render(PageComponent, document.getElementById("root"), {});
 ReactDOM.render(HeaderComponent, document.getElementById("header"), {
   router // Je me sers du routeur pour crée mon composant
 });
+
 
 // Detecte si l'initialisation de l'arboresence c'est bien effectué
 var promise = new Promise(function (resolve, reject) {
@@ -20,11 +23,11 @@ var promise = new Promise(function (resolve, reject) {
 
   // On vérifie qu'on a bien un content dans le DOM pour permettre au React de fonctionner
   if (contentElement)
-    resolve("Ah super ! content element a été trouvé !");
+    resolve("Content element found !  React can work ! Yay !");
   else
     reject(
       Error(
-        "Ohlala content element pas trouvé ! "
+        "No content element found... React won't work :( Please use Google Chrome !"
       )
     );
 });
@@ -37,10 +40,14 @@ promise.then(
     switch (!route ? null : route.getId()) {
       case "home":
         // Si on est sur la route home
-        //console.log("home :" + route.getId());
         ReactDOM.render(TickComponent, contentElement, {
           interval: 1000
         });
+        break;
+
+      case "push":
+        // Si on est sur la route file
+        ReactDOM.render(WebPushComponent, contentElement, {});
         break;
 
       case "file":
@@ -49,7 +56,7 @@ promise.then(
         break;
 
       case "battery":
-        // Si on est sur la route battery (pas fonctionnel)
+        // Si on est sur la route battery
         ReactDOM.render(BatteryManagerComponent, contentElement, {});
         break;
 

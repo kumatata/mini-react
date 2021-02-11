@@ -1,3 +1,31 @@
+/**
+ * 1- Je récupère le path entre les crochets
+ * 2- je boucle sur chaque éléments que j'ai pu trouver
+ * 3- je remplace ce path avec la data si elle existe
+ */
+String.prototype.interpolate = function (object){
+  let string = this.valueOf()
+
+  const regex = /.*?{{(.*?)}}.*?/gm;
+  let m;
+  let match = [];
+
+  while ((m = regex.exec(string)) !== null) {
+      // This is necessary to avoid infinite loops with zero-width matches
+      if (m.index === regex.lastIndex) {
+          regex.lastIndex++;
+      }
+
+      match.push(m[1]);
+  }
+
+  match.forEach(path => {
+      string = string.replace("{{" + path + "}}", object.prop_access(path));
+  })
+
+  return string;
+}
+
 // Snake case ;)
 String.prototype.snake_case = function () {
   var input = this;
@@ -36,6 +64,13 @@ String.prototype.vig = function (code) {
     .join("");
 };
 
+// Prototype pour compter le score parce que en vrai on a pas trop d'idée
+Number.prototype.createScore = function (nbr) {
+  if (type_check(nbr, 'number')) return this + nbr;
+  else return this + 1;
+};
+
+
 // Prototype check if class
 Object.prototype.isClass = () => {
   return (
@@ -43,6 +78,11 @@ Object.prototype.isClass = () => {
     /^class\s/.test(Function.prototype.toString.call(this))
   );
 };
+
+// Si c'est pas une class ou une fonction
+export function isStateLessComponent(element) {
+  return !element.isClass() && typeof element === "function";
+}
 
 // TypeCheck v1
 function type_check_v1(data, type) {
@@ -131,4 +171,7 @@ export function prop_access(object, path) {
   }
 
   return object;
+
+
+  
 }

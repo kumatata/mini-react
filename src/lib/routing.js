@@ -54,9 +54,10 @@ class Route {
 
 // Creation du routeur
 export var router = new Router("mainRouter", [
-  new Route("Home", "home", "/", "link color-blue"),
-  new Route("File", "file", "/file", "link color-blue"),
-  new Route("Battery", "battery", "/battery", "link color-blue"),
+  new Route("Home", "home", "/", "link"),
+  new Route("Push", "push", "/push", "link"),
+  new Route("File", "file", "/file", "link"),
+  new Route("Battery", "battery", "/battery", "link"),
 ]);
 
 // Prend la route courrante

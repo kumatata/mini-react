@@ -6,7 +6,7 @@ export class HeaderComponent extends Component {
 
   constructor(properties) {
     super(properties);
-    this.bodyTitle = "projet mini react ".ucfirst();
+    this.bodyTitle = "mini-react".ucfirst();
     this.routes = prop_access(properties.router, "routes");
     this.selectedLink = window.location.pathname;
   }
@@ -20,6 +20,9 @@ export class HeaderComponent extends Component {
     var routeHome = this.routes.filter(function (r) {
       return r.getId() === "home";
     })[0];
+    var routePush = this.routes.filter(function (r) {
+      return r.getId() === "push";
+    })[0];
     var routeFile = this.routes.filter(function (r) {
       return r.getId() === "file";
     })[0];
@@ -29,14 +32,17 @@ export class HeaderComponent extends Component {
 
     // Creation de l'arboresence
     const result = React.createElement(
-      "div",
+      "header",
       {
         class: "page-header",
-        style: "test-center;"
+        style: "text-align: center; width: 100%; color: #fff;"
       },
       React.createElement(
         "nav",
-        null,
+        {
+          class: "navbar navbar-expand-lg"
+        }
+        ,
         React.createElement(
           "a",
           {
@@ -49,6 +55,19 @@ export class HeaderComponent extends Component {
                 : ""
           },
           routeHome.getName()
+        ),
+        React.createElement(
+          "a",
+          {
+            class: routePush.getClassName(),
+            id: routePush.getId(),
+            href: "." + routePush.getPath(),
+            style:
+              this.selectedLink === routePush.getPath()
+                ? "text-decoration: underline"
+                : ""
+          },
+          routePush.getName()
         ),
         React.createElement(
           "a",
@@ -76,16 +95,6 @@ export class HeaderComponent extends Component {
           },
           routeBattery.getName()
         )
-      ),
-      React.createElement("h2", null, `${this.bodyTitle}`),
-      React.createElement("ul", null,
-        React.createElement("li", null, "Contenu du site"),
-        React.createElement("ul", null,
-          React.createElement("li", null, "Home : affiche la date et l'heure "),
-          React.createElement("li", null, "File : permet d'importer un fichier "),
-          React.createElement("li", null, "Battery : permet d'avoir des infos sur la baterie"),
-        ),
-        React.createElement("li", null, "Roure inconue : nous renvoi error 404"),
       )
     );
 

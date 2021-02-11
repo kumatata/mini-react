@@ -10,26 +10,16 @@ export class TickComponent extends Component {
   }
 
   render = () => {
-    const event = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-
-    //console.log(event.toLocaleDateString(undefined, options));
-
     const result = React.createElement(
       "div",
       {
-        class: "horloge",
+        class: "container text-center",
         style: "border-radius: 10px; border-style: outset;"
       },
       React.createElement(
-        "h2",
-        { class: "date", id: "horloge" },
-        `Date : ${event.toLocaleDateString(undefined, options)}`
-      ),
-      React.createElement(
-        "h2",
-        { class: "heure", id: "horloge" },
-        `Heure : ${this.state.ticker == null
+        "h1",
+        { class: "icecub", id: "horloge" },
+        `${this.state.ticker == null
           ? new Date().toLocaleTimeString()
           : this.state.ticker
         }`
