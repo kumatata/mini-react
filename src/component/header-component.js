@@ -45,7 +45,7 @@ export class HeaderComponent extends Component {
             href: "." + routeHome.getPath(),
             style:
               this.selectedLink === routeHome.getPath()
-                ? "text-decoration: underline"
+                ? "text-decoration: underline; color: red;"
                 : ""
           },
           routeHome.getName()
@@ -58,7 +58,7 @@ export class HeaderComponent extends Component {
             href: "." + routeFile.getPath(),
             style:
               this.selectedLink === routeFile.getPath()
-                ? "text-decoration: underline"
+                ? "text-decoration: underline; color: red;"
                 : ""
           },
           routeFile.getName()
@@ -71,7 +71,7 @@ export class HeaderComponent extends Component {
             href: "." + routeBattery.getPath(),
             style:
               this.selectedLink === routeBattery.getPath()
-                ? "text-decoration: underline"
+                ? "text-decoration: underline; color: red;"
                 : ""
           },
           routeBattery.getName()

@@ -1,16 +1,17 @@
  /* --- Balises --- */
 body {
-    background-color: azure;
+    background-color: #99A3A4;
 }
 
 nav {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: #5499C7;
+    background-color:#34495E;
   }
   
   a {
+    color: black;
     display: block;
     text-align: center;
     padding: 10px;
@@ -52,9 +53,17 @@ nav {
     text-align: left;
     margin-left: 7%;
   }
-  
-  .error {
-    color : red;
+
+  .battery {
+    border-style: double;
+    width: 300px;
+    margin-left: 40%;
+    text-align: center;
+  }
+
+  .danger {
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
   }
   
   /* --- Marges --- */
@@ -70,17 +79,18 @@ nav {
     margin-top: 5em;
   }
   
-  /* Buttons */
-  .btn {
-    color: #c800fa;
-    border-radius: 3px;
-    border-color: #c800fa;
-    background: rgba(0, 0, 0, 0);
-  }
-  
-  .btn:hover {
-    color: black;
-    border-radius: 3px;
-    border-color: #c800fa;
-    background: #c800fa;
-  }
+/* Buttons */
+.btn {
+  background-color: DodgerBlue;
+  margin-top: 5%;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
